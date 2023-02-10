@@ -2,15 +2,24 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/images/img-logo.png";
 import { Person, Key } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
   }, []);
+
+  const onRegister = () => navigate("/register");
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    navigate("/home");
+  };
 
   if (isLoading)
     return (
@@ -32,22 +41,25 @@ const Login = () => {
             <span>
               <Person sx={{ color: grey[800], fontSize: 45 }} />
             </span>
-            <input type="text" name="email" />
+            <input type="text" name="email" placeholder="Correo Electrónico" />
           </label>
           <label htmlFor="password">
             <span>
               <Key sx={{ color: grey[800], fontSize: 45 }} />
             </span>
-            <input type="password" name="password" />
+            <input type="password" name="password" placeholder="Contraseña" />
           </label>
         </form>
         <div className="Login__button">
-          <button type="submit">Iniciar Sesión</button>
+          <button type="submit" onClick={onLogin}>
+            Iniciar Sesión
+          </button>
         </div>
       </div>
       <div className="Login__footer">
         <p>
-          ¿Aun no tienes una cuenta? <span>¡Registrate!</span>
+          ¿Aun no tienes una cuenta?{" "}
+          <span onClick={onRegister}>¡Registrate!</span>
         </p>
       </div>
     </div>
