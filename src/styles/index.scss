@@ -1,5 +1,6 @@
 @use "./Login.scss";
 @use "./Register.scss";
+@use "./Navbar.scss";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 * {
@@ -27,4 +28,10 @@ body {
   display: grid;
   grid-template-columns: minmax(auto, var(--app-size));
   justify-content: center;
+
+  &__body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white-color);
+  }
 }
