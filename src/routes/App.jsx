@@ -15,8 +15,8 @@ const App = () => {
   return (
     <div className="Main">
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Layaout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/home/table/:id" element={<Table />} />

@@ -43,6 +43,11 @@
           background-color: #e0e0e0;
           outline: none;
         }
+
+        .error {
+          color: var(--red-color);
+          text-align: center;
+        }
       }
     }
   }
