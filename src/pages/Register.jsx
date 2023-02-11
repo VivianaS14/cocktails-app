@@ -7,21 +7,17 @@ import { useForm } from "react-hook-form";
 import { app } from "../firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
-import { addUser } from "../features/users/usersSlice";
 
 const Register = () => {
   const auth = getAuth(app);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [photoUser, setPhotoUser] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,18 +28,9 @@ const Register = () => {
   const onLogin = () => navigate("/login");
 
   const onRegister = (data) => {
-    setPhotoUser(Math.floor(Math.random() * 5000));
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        dispatch(
-          addUser({
-            id: user.uid,
-            name: data.name,
-            email: user.email,
-            photo: `https://avatars.dicebear.com/api/human/${photoUser}.svg`,
-          })
-        );
         Swal.fire(
           "Correo Registrado!",
           "Ya te encuentras registrado, te redirigimos para que inicies sesión!",
