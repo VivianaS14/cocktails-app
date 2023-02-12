@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   const auth = getAuth(app);
-  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const {
@@ -18,12 +17,6 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
 
   const onLogin = () => navigate("/login");
 
@@ -41,14 +34,6 @@ const Register = () => {
       .catch((error) => setError(error.message));
   };
 
-  if (isLoading)
-    return (
-      <div className="Register">
-        <div className="Register__image">
-          <img src={logo} alt="Cocktail Logo" width="200px" />
-        </div>
-      </div>
-    );
   return (
     <div className="Register">
       <div className="Register__image">

@@ -18,7 +18,7 @@ const Navbar = ({ menu }) => {
     signOut(auth)
       .then(() => {
         console.log("Sign-out successful");
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);

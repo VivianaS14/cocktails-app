@@ -39,3 +39,38 @@ body {
     background-color: var(--white-color);
   }
 }
+
+.MainPage {
+  width: 100%;
+  height: 100vh;
+  background: center url("../assets/images/bg-login.jpg");
+  color: var(--white-color);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2rem;
+
+  &__buttons {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    button {
+      width: 60%;
+      padding: 1rem;
+      font-size: 18px;
+      color: var(--white-color);
+      background-color: var(--purple-color);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn-admin {
+      background-color: var(--red-color);
+    }
+  }
+}
