@@ -1,0 +1,27 @@
+.Table {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--gray-color);
+  display: grid;
+  place-items: center;
+
+  p {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  &__image {
+    width: 75%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    background-color: var(--gray-color);
+    cursor: pointer;
+  }
+}
