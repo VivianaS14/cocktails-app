@@ -1,11 +1,20 @@
-.Login {
+.Admin {
   width: 100%;
   height: 100vh;
-  background: center url("../assets/images/bg-login.jpg");
-  color: var(--white-color);
+  background: url("../assets/images/bg-admin.png") no-repeat;
+  background-size: cover;
   display: grid;
   place-items: center;
-  align-content: space-evenly;
+
+  &__content {
+    width: 85%;
+    height: 70vh;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+  }
 
   &__form {
     width: 80%;
@@ -17,7 +26,7 @@
       margin-bottom: 2rem;
       font-weight: 900;
       font-size: 30px;
-      color: var(--purple-color);
+      color: var(--red-color);
     }
 
     form {
@@ -64,17 +73,9 @@
       padding: 1rem;
       font-size: 18px;
       color: var(--white-color);
-      background-color: var(--purple-color);
+      background-color: var(--red-color);
       border: none;
       border-radius: 8px;
-      cursor: pointer;
-    }
-  }
-
-  &__footer {
-    span {
-      color: var(--purple-color);
-      font-weight: 700;
       cursor: pointer;
     }
   }

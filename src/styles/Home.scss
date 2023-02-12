@@ -1,0 +1,23 @@
+.Home {
+  width: 100%;
+  height: 90vh;
+  background-color: var(--white-color);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  overflow: scroll;
+
+  h2 {
+    color: var(--purple-color);
+    font-style: italic;
+  }
+
+  &__content {
+    width: 100%;
+    display: grid;
+    padding: 1.5rem;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}

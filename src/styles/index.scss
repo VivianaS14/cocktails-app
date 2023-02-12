@@ -1,6 +1,9 @@
 @use "./Login.scss";
 @use "./Register.scss";
 @use "./Navbar.scss";
+@use "./Home.scss";
+@use "./Table.scss";
+@use "./Admin.scss";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 * {
@@ -14,6 +17,7 @@
   --black-color: #303030;
   --red-color: #e72f3e;
   --green-color: #02a337;
+  --gray-color: #c5c5c5;
   --white-color: #eee;
   --app-size: 450px;
 }
