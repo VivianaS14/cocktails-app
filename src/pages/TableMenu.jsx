@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const Table = () => {
+const TableMenu = () => {
   const params = useParams();
 
   return (
     <div>
-      <h3>Table {params.id}</h3>
+      <h3>{params.id}</h3>
     </div>
   );
 };
 
-export default Table;
+export default TableMenu;

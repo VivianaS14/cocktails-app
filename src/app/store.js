@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import usersReducer from "../features/users/usersSlice";
+import tablesReducer from "../features/tables/tablesSlice";
 
 export const store = configureStore({
   reducer: {
-    users: usersReducer,
+    tables: tablesReducer,
   },
 });

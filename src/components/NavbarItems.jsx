@@ -1,14 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NavbarItems = ({ name, icon, path }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(path);
+    document.querySelector(".Navbar__menu").classList.toggle("none");
+  };
+
   return (
-    <Link to={path} style={{ textDecoration: "none", color: "white" }}>
-      <li>
-        {icon}
-        <span>{name}</span>
-      </li>
-    </Link>
+    <li onClick={handleClick}>
+      {icon}
+      <span>{name}</span>
+    </li>
   );
 };
 
