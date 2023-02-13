@@ -36,7 +36,7 @@ const menuAdmin = [
     id: 3,
     name: "Menu del Dia",
     icon: <RestaurantMenu />,
-    path: "/admin/home/menu",
+    path: "/admin/home",
   },
   {
     id: 4,
