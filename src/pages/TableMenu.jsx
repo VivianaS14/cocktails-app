@@ -1,13 +1,25 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { teal } from "@mui/material/colors";
 import { CheckCircle } from "@mui/icons-material";
 import TableMenuItem from "../components/TableMenuItem";
+import { addOrder } from "../features/order/orderSlice";
 
 const TableMenu = () => {
   const params = useParams();
+  const [order, setOrder] = useState([]);
   const daily = useSelector((state) => state.daily);
+  const dispatch = useDispatch();
+
+  const handleOrder = () => {
+    dispatch(
+      addOrder({
+        table: params.id,
+        order,
+      })
+    );
+  };
 
   return (
     <div className="TableMenu">
@@ -20,11 +32,13 @@ const TableMenu = () => {
             img={item.img}
             name={item.name}
             price={item.price}
+            order={order}
+            setOrder={setOrder}
           />
         ))}
       </div>
       <div className="TableMenu__footer">
-        <button className="btn-add" type="button">
+        <button className="btn-add" type="button" onClick={handleOrder}>
           <CheckCircle sx={{ color: teal[50] }} />
         </button>
       </div>

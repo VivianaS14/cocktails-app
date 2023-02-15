@@ -1,11 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ControlPointRounded,
   RemoveCircleOutlineRounded,
 } from "@mui/icons-material";
 
-const TableMenuItem = ({ id, img, name, price }) => {
+const TableMenuItem = ({ id, img, name, price, order, setOrder }) => {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const orderFound = order.find((e) => e.id === id);
+    if (count > 0) {
+      if (orderFound) {
+        const index = order.indexOf(orderFound);
+        order[index].count = count;
+      } else {
+        setOrder([
+          ...order,
+          {
+            id,
+            name,
+            price,
+            img,
+            count,
+          },
+        ]);
+      }
+    } else if (count === 0) {
+      const index = order.indexOf(orderFound);
+      order.splice(index, 1);
+    }
+  }, [count]);
 
   const addCount = () => {
     setCount(count + 1);
