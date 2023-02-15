@@ -20,6 +20,7 @@ const Menu = () => {
         {daily?.map((item) => (
           <MenuUser
             key={item.id}
+            id={item.id}
             category={item.category}
             name={item.name}
             img={item.img}

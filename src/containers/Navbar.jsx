@@ -5,10 +5,14 @@ import NavbarItems from "../components/NavbarItems";
 import { app } from "../firebase";
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../features/user/userSlice";
+import Swal from "sweetalert2";
 
 const Navbar = ({ menu }) => {
   const auth = getAuth(app);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const showMenu = () => {
     document.querySelector(".Navbar__menu").classList.toggle("none");
@@ -17,7 +21,8 @@ const Navbar = ({ menu }) => {
   const onSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("Sign-out successful");
+        Swal.fire("Sesion Cerrada!", "Vuelve Pronto!", "success");
+        dispatch(deleteUser());
         navigate("/");
       })
       .catch((error) => {

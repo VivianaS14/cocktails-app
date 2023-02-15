@@ -19,9 +19,9 @@ const MainPage = () => {
         <img src={logo} alt="Cocktail Logo" width="200px" />
       </div>
       <div className="MainPage__buttons">
-        <button onClick={goUser}>User</button>
+        <button onClick={goUser}>Usuario</button>
         <button onClick={goAdmin} className="btn-admin">
-          Admin
+          Administrador
         </button>
       </div>
     </div>

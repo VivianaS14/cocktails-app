@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/images/img-logo.png";
 import { Person, Key } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
@@ -6,16 +6,24 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { app } from "../firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../features/user/userSlice";
 
 const Login = () => {
   const auth = getAuth(app);
   const [error, setError] = useState("");
+  const [photoUser, setPhotoUser] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    setPhotoUser(Math.floor(Math.random() * 5000));
+  }, []);
 
   const onRegister = () => navigate("/");
 
@@ -23,6 +31,14 @@ const Login = () => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        dispatch(
+          addUser({
+            id: user.uid,
+            name: `Usuario ${photoUser}`,
+            email: user.email,
+            photo: `https://avatars.dicebear.com/api/human/${photoUser}.svg`,
+          })
+        );
       })
       .catch((error) => {
         setError(error.message);

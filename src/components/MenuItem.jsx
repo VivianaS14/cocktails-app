@@ -2,7 +2,7 @@ import React from "react";
 import { CheckCircle } from "@mui/icons-material";
 import { teal } from "@mui/material/colors";
 import { useDispatch } from "react-redux";
-import { addDaily } from "../features/dailySlice/dailySlice";
+import { addDaily } from "../features/daily/dailySlice";
 
 const MenuItem = ({ id, name, category, img, size }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,6 @@ const MenuItem = ({ id, name, category, img, size }) => {
         name,
         img,
         category,
-        img,
         size,
         price: id,
       })

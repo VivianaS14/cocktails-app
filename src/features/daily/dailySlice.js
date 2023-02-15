@@ -9,8 +9,14 @@ export const dailySlice = createSlice({
     addDaily: (state, action) => {
       state.push(action.payload);
     },
+    deleteDaily: (state, action) => {
+      const menuFound = state.find((menu) => menu.id === action.payload);
+      if (menuFound) {
+        state.splice(state.indexOf(menuFound), 1);
+      }
+    },
   },
 });
 
-export const { addDaily } = dailySlice.actions;
+export const { addDaily, deleteDaily } = dailySlice.actions;
 export default dailySlice.reducer;

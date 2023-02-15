@@ -53,6 +53,15 @@
         background-color: var(--green-color);
       }
     }
+
+    .btn-remove {
+      margin: 0.5rem;
+      padding: 0.1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--red-color);
+      cursor: pointer;
+    }
   }
 
   &__badge {
