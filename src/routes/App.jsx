@@ -12,6 +12,7 @@ import Menu from "../pages/Menu";
 import Stock from "../pages/Stock";
 import MainPage from "../pages/MainPage";
 import Report from "../pages/Report";
+import Profile from "../pages/Profile";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/:home" element={<Layaout />}>
           <Route path="/:home" element={<Home />} />
+          <Route path="/:home/profile" element={<Profile />} />
           <Route path="/:home/table/:id" element={<TableMenu />} />
           <Route path="/:home/table/order/:id" element={<Order />} />
           <Route path="/:home/table/invoice/:id" element={<Invoice />} />
