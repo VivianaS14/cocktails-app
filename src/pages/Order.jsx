@@ -13,6 +13,10 @@ const Order = () => {
     navigate(`/home/table/${params.id}`);
   };
 
+  const handleSend = () => {
+    navigate(`/home/table/invoice/${params.id}`);
+  };
+
   return (
     <div className="Order">
       <h2>{params.id}</h2>
@@ -39,7 +43,7 @@ const Order = () => {
         <button type="button" className="edit" onClick={handleEdit}>
           <Edit sx={{ fontSize: 25 }} />
         </button>
-        <button type="button" className="send">
+        <button type="button" className="send" onClick={handleSend}>
           Enviar
         </button>
       </div>
