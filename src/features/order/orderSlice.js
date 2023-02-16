@@ -7,6 +7,7 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     addOrder: (state, action) => {
+      state.splice(0, 1);
       state.push(action.payload);
     },
   },

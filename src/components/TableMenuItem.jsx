@@ -19,7 +19,7 @@ const TableMenuItem = ({ id, img, name, price, order, setOrder }) => {
           {
             id,
             name,
-            price,
+            price: parseInt(price),
             img,
             count,
           },

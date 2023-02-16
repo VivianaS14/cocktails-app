@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { teal } from "@mui/material/colors";
@@ -13,10 +13,15 @@ const TableMenu = () => {
   const dispatch = useDispatch();
 
   const handleOrder = () => {
+    let total = 0;
+    order.forEach((e) => (total += e.price * e.count));
+
     dispatch(
       addOrder({
         table: params.id,
         order,
+        total: total,
+        status: false,
       })
     );
   };
