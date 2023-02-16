@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { teal } from "@mui/material/colors";
 import { CheckCircle } from "@mui/icons-material";
 import TableMenuItem from "../components/TableMenuItem";
@@ -11,6 +11,7 @@ const TableMenu = () => {
   const [order, setOrder] = useState([]);
   const daily = useSelector((state) => state.daily);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOrder = () => {
     let total = 0;
@@ -24,6 +25,8 @@ const TableMenu = () => {
         status: false,
       })
     );
+
+    navigate(`/home/table/order/${params.id}`);
   };
 
   return (

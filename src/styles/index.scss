@@ -6,6 +6,7 @@
 @use "./Admin.scss";
 @use "./Menu.scss";
 @use "./TableMenu.scss";
+@use "./Order.scss";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 * {
@@ -19,6 +20,7 @@
   --black-color: #303030;
   --red-color: #e72f3e;
   --green-color: #02a337;
+  --yellow-color: #e99c2d;
   --gray-color: #c5c5c5;
   --white-color: #eee;
   --app-size: 450px;
