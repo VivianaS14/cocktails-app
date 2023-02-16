@@ -1,0 +1,34 @@
+.Report {
+  width: 100%;
+  height: 90vh;
+  background-color: var(--white-color);
+  display: grid;
+  place-items: center;
+
+  h2 {
+    font-style: italic;
+  }
+
+  &__content {
+    width: 90%;
+  }
+
+  &__item {
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 1rem;
+  }
+
+  &__total {
+    width: 80%;
+    padding: 1rem;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+}

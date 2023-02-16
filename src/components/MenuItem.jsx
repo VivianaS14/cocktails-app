@@ -3,6 +3,7 @@ import { CheckCircle } from "@mui/icons-material";
 import { teal } from "@mui/material/colors";
 import { useDispatch } from "react-redux";
 import { addDaily } from "../features/daily/dailySlice";
+import Swal from "sweetalert2";
 
 const MenuItem = ({ id, name, category, img, size }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const MenuItem = ({ id, name, category, img, size }) => {
         price: id,
       })
     );
+    Swal.fire("Agregado!", "", "success");
   };
 
   return (

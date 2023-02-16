@@ -11,6 +11,7 @@ import Invoice from "../pages/Invoice";
 import Menu from "../pages/Menu";
 import Stock from "../pages/Stock";
 import MainPage from "../pages/MainPage";
+import Report from "../pages/Report";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/:admin/home" element={<Layaout />}>
           <Route path="/:admin/home/" element={<Menu />} />
           <Route path="/:admin/home/stock" element={<Stock />} />
+          <Route path="/:admin/home/report" element={<Report />} />
         </Route>
       </Routes>
     </div>
