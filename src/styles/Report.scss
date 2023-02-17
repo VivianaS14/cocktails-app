@@ -11,6 +11,8 @@
 
   &__content {
     width: 90%;
+    height: 50vh;
+    overflow-y: scroll;
   }
 
   &__item {

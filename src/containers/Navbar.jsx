@@ -21,7 +21,7 @@ const Navbar = ({ menu }) => {
   const onSignOut = () => {
     signOut(auth)
       .then(() => {
-        Swal.fire("Sesion Cerrada!", "Vuelve Pronto!", "success");
+        Swal.fire("Sesión Cerrada!", "Vuelve Pronto!", "success");
         dispatch(deleteUser());
         navigate("/");
       })

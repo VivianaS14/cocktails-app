@@ -14,7 +14,7 @@ const Profile = () => {
           src={usuario.photo}
           sx={{ width: 120, height: 120 }}
         />
-        <h3>{usuario.name}</h3>
+        <h3>Hola! {usuario.name}</h3>
         <h4>{usuario.email}</h4>
       </div>
     </div>

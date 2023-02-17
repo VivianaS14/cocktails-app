@@ -22,7 +22,7 @@ const TableMenu = () => {
         table: params.id,
         order,
         total: total,
-        status: false,
+        status: true,
       })
     );
 
@@ -32,19 +32,33 @@ const TableMenu = () => {
   return (
     <div className="TableMenu">
       <h2>{params.id}</h2>
-      <div className="TableMenu__content">
-        {daily.map((item) => (
-          <TableMenuItem
-            key={item.id}
-            id={item.id}
-            img={item.img}
-            name={item.name}
-            price={item.price}
-            order={order}
-            setOrder={setOrder}
+      {daily.length > 0 ? (
+        <div className="TableMenu__content">
+          {daily?.map((item) => (
+            <TableMenuItem
+              key={item.id}
+              id={item.id}
+              img={item.img}
+              name={item.name}
+              price={item.price}
+              order={order}
+              setOrder={setOrder}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="TableMenu__empty">
+          <h4>Aun no estamos listos para atenderte</h4>
+          <p>Habla con el administrador para encontrar el menú!</p>
+          <br />
+          <img
+            src="https://opendoodles.s3-us-west-1.amazonaws.com/selfie.svg"
+            alt=""
+            width="400"
           />
-        ))}
-      </div>
+        </div>
+      )}
+
       <div className="TableMenu__footer">
         <button className="btn-add" type="button" onClick={handleOrder}>
           <CheckCircle sx={{ color: teal[50] }} />
