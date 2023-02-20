@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useTables from "../hook/useTables";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 
 const Report = () => {
@@ -8,27 +8,37 @@ const Report = () => {
   const [sellings, setSellings] = useState([]);
   const [totals, setTotals] = useState(0);
 
+  const getSellings = async () => {
+    let dataSellings = [];
+    tableId.forEach((table) => {
+      console.log(dataSellings);
+      const ref = collection(db, "tables", table.id, "orders");
+      getDocs(ref).then((res) => {
+        res.docs.forEach((doc) => {
+          dataSellings = [
+            ...dataSellings,
+            {
+              id: doc.id,
+              table: doc.data().table,
+              total: doc.data().total,
+            },
+          ];
+        });
+      });
+    });
+    setSellings(dataSellings);
+  };
+
   useEffect(() => {
-    setSellings(getSellings());
-    sellings.forEach((data) => setTotals(totals + data.total));
+    if (sellings.length === 0) {
+      getSellings();
+      sellings.forEach((data) => setTotals(totals + data.total));
+    }
   }, []);
 
-  const getSellings = () => {
-    const dataSellings = [];
-    tableId.forEach((table) => {
-      const ref = collection(db, "tables", table.id, "orders");
-      onSnapshot(ref, (snapshot) =>
-        snapshot.docs.map((doc) =>
-          dataSellings.push({
-            id: doc.id,
-            table: doc.data().table,
-            total: doc.data().total,
-          })
-        )
-      );
-    });
-    return dataSellings;
-  };
+  useEffect(() => {
+    console.log(sellings);
+  }, [sellings]);
 
   return (
     <div className="Report">
